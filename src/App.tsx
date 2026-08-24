@@ -30,7 +30,7 @@ export function App() {
   };
 
   return (
-    <div id="portfolio-app-root" className="min-h-screen bg-[#0a1124] text-slate-100 flex flex-col font-sans selection:bg-teal-500/30 selection:text-teal-200">
+    <div id="portfolio-app-root" className="min-h-screen bg-[#050505] text-neutral-100 flex flex-col font-sans selection:bg-white selection:text-black">
       {/* Top sticky navigation */}
       <Navbar
         lang={lang}

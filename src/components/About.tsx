@@ -66,14 +66,14 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
   };
 
   return (
-    <section id="sobre-mim" className="py-20 relative border-t border-slate-800/80">
+    <section id="sobre-mim" className="py-20 relative border-t border-neutral-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <div className="flex items-center gap-2 text-teal-400 text-xs font-mono tracking-wider uppercase mb-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+            <div className="flex items-center gap-2 text-neutral-400 text-xs font-mono tracking-wider uppercase mb-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-white" />
               <span>01. {lang === 'pt' ? 'Apresentação & Perfil' : 'Profile & Introduction'}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
@@ -85,7 +85,7 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
           <button
             id="about-btn-view-wireframe"
             onClick={() => onOpenPrototype('sobre-mim')}
-            className="self-start md:self-auto flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium text-teal-300 bg-teal-950/40 hover:bg-teal-900/60 border border-teal-500/30 transition-colors"
+            className="self-start md:self-auto flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium text-neutral-300 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700/80 transition-colors"
           >
             <Eye className="w-3.5 h-3.5" />
             <span>{lang === 'pt' ? 'Ver Wireframe desta Seção (Figma)' : 'View Wireframe (Figma)'}</span>
@@ -93,14 +93,14 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex border-b border-slate-800 mb-8 overflow-x-auto scrollbar-none gap-2">
+        <div className="flex border-b border-neutral-800 mb-8 overflow-x-auto scrollbar-none gap-2">
           <button
             id="about-tab-profile"
             onClick={() => setActiveTab('profile')}
             className={`flex items-center gap-2 px-5 py-3 text-sm font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'profile'
-                ? 'border-teal-400 text-teal-300 bg-slate-900/50'
-                : 'border-transparent text-slate-400 hover:text-slate-200'
+                ? 'border-white text-white bg-neutral-900/60'
+                : 'border-transparent text-neutral-400 hover:text-neutral-200'
             }`}
           >
             <Briefcase className="w-4 h-4" />
@@ -112,8 +112,8 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
             onClick={() => setActiveTab('skills')}
             className={`flex items-center gap-2 px-5 py-3 text-sm font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'skills'
-                ? 'border-teal-400 text-teal-300 bg-slate-900/50'
-                : 'border-transparent text-slate-400 hover:text-slate-200'
+                ? 'border-white text-white bg-neutral-900/60'
+                : 'border-transparent text-neutral-400 hover:text-neutral-200'
             }`}
           >
             <Code className="w-4 h-4" />
@@ -125,8 +125,8 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
             onClick={() => setActiveTab('education')}
             className={`flex items-center gap-2 px-5 py-3 text-sm font-semibold border-b-2 transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'education'
-                ? 'border-teal-400 text-teal-300 bg-slate-900/50'
-                : 'border-transparent text-slate-400 hover:text-slate-200'
+                ? 'border-white text-white bg-neutral-900/60'
+                : 'border-transparent text-neutral-400 hover:text-neutral-200'
             }`}
           >
             <GraduationCap className="w-4 h-4" />
@@ -140,22 +140,22 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
             
             {/* Main Bio Text */}
             <div className="lg:col-span-2 space-y-6">
-              <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-800 shadow-xl space-y-4">
+              <div className="p-6 sm:p-8 rounded-2xl bg-neutral-900/80 border border-neutral-800 shadow-xl space-y-4">
                 <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-teal-400" />
+                  <Sparkles className="w-5 h-5 text-neutral-300" />
                   <span>{lang === 'pt' ? 'Quem é Bernardo?' : 'Who is Bernardo?'}</span>
                 </h3>
-                <p className="text-slate-300 leading-relaxed text-base">
+                <p className="text-neutral-300 leading-relaxed text-base">
                   {personalInfo.about[lang].bio}
                 </p>
                 <div className="pt-2">
-                  <h4 className="text-sm font-semibold text-teal-300 uppercase tracking-wider font-mono mb-3">
+                  <h4 className="text-sm font-semibold text-neutral-200 uppercase tracking-wider font-mono mb-3">
                     {lang === 'pt' ? 'Destaques Acadêmicos' : 'Academic Highlights'}
                   </h4>
                   <ul className="space-y-2.5">
                     {personalInfo.about[lang].academicHighlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start gap-3 text-sm text-neutral-300">
+                        <CheckCircle2 className="w-4 h-4 text-white shrink-0 mt-0.5" />
                         <span>{highlight}</span>
                       </li>
                     ))}
@@ -164,12 +164,12 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
               </div>
 
               {/* Career Goals Box */}
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-teal-950/30 to-slate-900/80 border border-teal-500/20 space-y-3">
-                <div className="flex items-center gap-2 text-teal-300 font-bold text-base">
-                  <Target className="w-5 h-5 text-teal-400" />
+              <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800 space-y-3">
+                <div className="flex items-center gap-2 text-white font-bold text-base">
+                  <Target className="w-5 h-5 text-neutral-300" />
                   <span>{lang === 'pt' ? 'Objetivo Profissional' : 'Career Objective'}</span>
                 </div>
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-neutral-300 text-sm leading-relaxed">
                   {personalInfo.about[lang].careerGoals}
                 </p>
               </div>
@@ -177,51 +177,51 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
 
             {/* Side Card: Quick Details & CV Action */}
             <div className="space-y-6">
-              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-5">
+              <div className="p-6 rounded-2xl bg-neutral-900/80 border border-neutral-800 space-y-5">
                 <h4 className="font-bold text-white text-base">
                   {lang === 'pt' ? 'Informações Gerais' : 'Quick Details'}
                 </h4>
                 
                 <div className="space-y-3.5 text-sm">
                   <div>
-                    <span className="text-slate-400 block text-xs font-mono uppercase">
+                    <span className="text-neutral-500 block text-xs font-mono uppercase">
                       {lang === 'pt' ? 'Instituição' : 'Institution'}
                     </span>
-                    <span className="font-semibold text-slate-200">{personalInfo.university}</span>
+                    <span className="font-semibold text-neutral-200">{personalInfo.university}</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block text-xs font-mono uppercase">
+                    <span className="text-neutral-500 block text-xs font-mono uppercase">
                       {lang === 'pt' ? 'Curso' : 'Degree'}
                     </span>
-                    <span className="font-semibold text-slate-200">
+                    <span className="font-semibold text-neutral-200">
                       {lang === 'pt' ? 'Engenharia de Software (Bacharelado)' : 'Software Engineering (B.S.)'}
                     </span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block text-xs font-mono uppercase">
+                    <span className="text-neutral-500 block text-xs font-mono uppercase">
                       {lang === 'pt' ? 'Período' : 'Graduation Window'}
                     </span>
-                    <span className="font-semibold text-teal-400">{personalInfo.period}</span>
+                    <span className="font-semibold text-white">{personalInfo.period}</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block text-xs font-mono uppercase">
+                    <span className="text-neutral-500 block text-xs font-mono uppercase">
                       {lang === 'pt' ? 'Localização' : 'Location'}
                     </span>
-                    <span className="font-semibold text-slate-200">{personalInfo.location}</span>
+                    <span className="font-semibold text-neutral-200">{personalInfo.location}</span>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-800">
+                <div className="pt-4 border-t border-neutral-800">
                   <button
                     id="about-btn-download-cv"
                     onClick={handleDownloadCV}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-xs uppercase tracking-wider text-slate-950 bg-teal-400 hover:bg-teal-300 transition-all shadow-md shadow-teal-500/20 active:scale-95 cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-xs uppercase tracking-wider text-black bg-white hover:bg-neutral-200 transition-all shadow-sm active:scale-95 cursor-pointer"
                   >
                     <Download className="w-4 h-4" />
                     <span>{lang === 'pt' ? 'Visualizar / Baixar Currículo' : 'View / Download Resume'}</span>
                   </button>
                   {cvDownloaded && (
-                    <p className="text-[11px] text-teal-400 text-center mt-2 font-mono">
+                    <p className="text-[11px] text-neutral-300 text-center mt-2 font-mono">
                       ✓ {lang === 'pt' ? 'Currículo aberto para visualização e impressão!' : 'Resume opened for preview & print!'}
                     </p>
                   )}
@@ -229,16 +229,16 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
               </div>
 
               {/* Areas of Interest */}
-              <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-3">
+              <div className="p-6 rounded-2xl bg-neutral-900/60 border border-neutral-800 space-y-3">
                 <h4 className="font-bold text-white text-sm flex items-center gap-2">
-                  <Heart className="w-4 h-4 text-teal-400" />
+                  <Heart className="w-4 h-4 text-neutral-400" />
                   <span>{lang === 'pt' ? 'Áreas de Interesse' : 'Areas of Interest'}</span>
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {personalInfo.about[lang].interests.map((interest, i) => (
                     <span
                       key={i}
-                      className="px-2.5 py-1 rounded-lg bg-slate-800/80 text-teal-300 text-xs font-medium border border-teal-500/20"
+                      className="px-2.5 py-1 rounded-lg bg-neutral-800 text-neutral-200 text-xs font-medium border border-neutral-700"
                     >
                       {interest}
                     </span>
@@ -265,10 +265,10 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
                 return (
                   <div
                     key={group.id}
-                    className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-5 hover:border-teal-500/40 transition-colors"
+                    className="p-6 rounded-2xl bg-neutral-900/80 border border-neutral-800 space-y-5 hover:border-neutral-700 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-2.5 rounded-xl bg-teal-950/60 border border-teal-500/30 text-teal-400">
+                      <div className="p-2.5 rounded-xl bg-neutral-800 border border-neutral-700 text-white">
                         <IconComponent className="w-5 h-5" />
                       </div>
                       <h3 className="font-bold text-white text-lg">
@@ -280,18 +280,18 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
                       {group.skills.map((skill) => (
                         <div key={skill.name} className="space-y-1">
                           <div className="flex justify-between text-xs">
-                            <span className="font-semibold text-slate-200 flex items-center gap-1.5">
+                            <span className="font-semibold text-neutral-200 flex items-center gap-1.5">
                               {skill.name}
                               {skill.popular && (
-                                <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-white" />
                               )}
                             </span>
-                            <span className="text-slate-400 font-mono">{skill.category}</span>
+                            <span className="text-neutral-400 font-mono">{skill.category}</span>
                           </div>
                           {skill.proficiency && (
-                            <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                            <div className="w-full bg-neutral-800 rounded-full h-1.5 overflow-hidden">
                               <div
-                                className="bg-gradient-to-r from-teal-500 to-teal-300 h-1.5 rounded-full transition-all duration-500"
+                                className="bg-white h-1.5 rounded-full transition-all duration-500"
                                 style={{ width: `${skill.proficiency}%` }}
                               />
                             </div>
@@ -308,13 +308,13 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
 
         {/* Tab 3: Education */}
         {activeTab === 'education' && (
-          <div className="p-8 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-6">
+          <div className="p-8 rounded-2xl bg-neutral-900/80 border border-neutral-800 space-y-6">
             <div className="flex items-start gap-4">
-              <div className="p-3 rounded-2xl bg-teal-950/80 border border-teal-500/30 text-teal-400 shrink-0">
+              <div className="p-3 rounded-2xl bg-neutral-800 border border-neutral-700 text-white shrink-0">
                 <GraduationCap className="w-8 h-8" />
               </div>
               <div className="space-y-2">
-                <span className="text-xs font-mono text-teal-400 uppercase tracking-wider">
+                <span className="text-xs font-mono text-neutral-400 uppercase tracking-wider">
                   {lang === 'pt' ? 'Graduação em Andamento' : 'Undergraduate Degree'}
                 </span>
                 <h3 className="text-2xl font-bold text-white">
@@ -322,36 +322,36 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
                     ? 'Bacharelado em Engenharia de Software'
                     : 'B.S. in Software Engineering'}
                 </h3>
-                <p className="text-teal-300 font-semibold">
+                <p className="text-neutral-200 font-semibold">
                   Pontifícia Universidade Católica de Minas Gerais (PUC Minas)
                 </p>
-                <p className="text-slate-400 text-sm font-mono">
+                <p className="text-neutral-400 text-sm font-mono">
                   Belo Horizonte, MG • {personalInfo.period}
                 </p>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-800 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
+            <div className="pt-4 border-t border-neutral-800 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-neutral-300">
               <div className="space-y-3">
                 <h4 className="font-bold text-white flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-teal-400" />
+                  <FileText className="w-4 h-4 text-neutral-300" />
                   <span>{lang === 'pt' ? 'Disciplinas e Núcleos Chave' : 'Core Focus Disciplines'}</span>
                 </h4>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     <span>Projeto de Software & Laboratórios Práticos (Lab01)</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     <span>Algoritmos, Estruturas de Dados & Complexidade</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     <span>Arquitetura de Software & Padrões de Projeto (GoF)</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     <span>Bancos de Dados Relacionais e Modelagem ER</span>
                   </li>
                 </ul>
@@ -359,24 +359,24 @@ export const About: React.FC<AboutProps> = ({ lang, onOpenPrototype }) => {
 
               <div className="space-y-3">
                 <h4 className="font-bold text-white flex items-center gap-2">
-                  <Target className="w-4 h-4 text-teal-400" />
+                  <Target className="w-4 h-4 text-neutral-300" />
                   <span>{lang === 'pt' ? 'Metodologias e Práticas' : 'Methods & Engineering Practices'}</span>
                 </h4>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     <span>Metodologias Ágeis (Scrum, Kanban, Sprints Quinzenais)</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     <span>Prototipação UI/UX no Figma & Validação com Usuários</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     <span>Engenharia de Requisitos e Histórias de Usuário</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     <span>Controle de Versão Colaborativo (Git Flow / GitHub)</span>
                   </li>
                 </ul>

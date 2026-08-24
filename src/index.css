@@ -4,6 +4,7 @@
   html {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     color-scheme: dark;
+    scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -15,41 +16,41 @@
   }
 }
 
-/* Custom glow & glass effects aligned with navy/teal palette */
+/* Minimalist monochrome glass & card surfaces */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(45, 212, 191, 0.15);
+  background: rgba(12, 12, 12, 0.85);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-card {
-  background: rgba(15, 28, 54, 0.65);
-  backdrop-filter: blur(10px);
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.25s ease-in-out;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  background: rgba(18, 35, 68, 0.85);
-  border-color: rgba(45, 212, 191, 0.35);
+  background: rgba(28, 28, 28, 0.9);
+  border-color: rgba(255, 255, 255, 0.22);
   transform: translateY(-2px);
 }
 
-/* Custom scrollbar */
+/* Custom minimalist monochrome scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b1329;
+  background: #050505;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
+  background: #262626;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #14b8a6;
+  background: #525252;
 }
