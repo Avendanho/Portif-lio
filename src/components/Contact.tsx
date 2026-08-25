@@ -56,7 +56,7 @@ export const Contact: React.FC<ContactProps> = ({
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
 
@@ -82,26 +82,48 @@ export const Contact: React.FC<ContactProps> = ({
 
     setIsSubmitting(true);
 
-    // Simulate sending & trigger client mailto draft as fallback
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmittedSuccess(true);
-      onShowToast(
-        lang === 'pt'
-          ? 'Mensagem enviada com sucesso! Obrigado pelo contato.'
-          : 'Message sent successfully! Thank you for reaching out.'
-      );
+    // Envia direto para o e-mail via Web3Forms (sem backend próprio)
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '7dc9d8f8-f211-4363-8531-d388d4bffe05',
+          subject: formValues.subject || `Contato de ${formValues.name} via Portfólio`,
+          from_name: formValues.name,
+          name: formValues.name,
+          email: formValues.email,
+          message: formValues.message
+        })
+      });
 
-      // Open mailto fallback in background
-      const mailtoLink = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
-        formValues.subject || `Contato de ${formValues.name} via Portfólio`
-      )}&body=${encodeURIComponent(
-        `Nome: ${formValues.name}\nE-mail: ${formValues.email}\n\nMensagem:\n${formValues.message}`
-      )}`;
-      
-      // Clear form
-      setFormValues({ name: '', email: '', subject: '', message: '' });
-    }, 900);
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmittedSuccess(true);
+        onShowToast(
+          lang === 'pt'
+            ? 'Mensagem enviada com sucesso! Obrigado pelo contato.'
+            : 'Message sent successfully! Thank you for reaching out.'
+        );
+
+        // Clear form
+        setFormValues({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error(result.message || 'Falha no envio');
+      }
+    } catch (error) {
+      setErrorMsg(
+        lang === 'pt'
+          ? `Não foi possível enviar agora. Tente novamente ou escreva direto para ${personalInfo.email}.`
+          : `Couldn't send right now. Please try again or email me directly at ${personalInfo.email}.`
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
